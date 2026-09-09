@@ -7,6 +7,14 @@ and this project loosely adheres to [Semantic Versioning](https://semver.org/spe
 
 ## [Unreleased]
 
+## [0.8.2] - 2026-09-09
+
+### Added
+- **GPT-6 Astra pricing** — Added the model and display-name alias, official input/output and cache rates, and the long-context tier above 272,000 input tokens to the shared pricing defaults.
+
+### Fixed
+- **Astra cost estimates** — Astra sessions can now use token-based AI Credit estimates when observed billing telemetry is absent, including cache-write costs.
+
 ## [0.8.1] - 2026-08-02
 
 ### Fixed

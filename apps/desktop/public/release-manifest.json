@@ -1,6 +1,20 @@
 {
   "versions": [
     {
+      "version": "0.8.2",
+      "date": "2026-09-09",
+      "notes": {
+        "added": [
+          "GPT-6 Astra pricing: Model recognition, official token and cache rates, and long-context pricing above 272,000 input tokens"
+        ],
+        "changed": [],
+        "fixed": [
+          "Astra cost estimates: Token-based AI Credit estimates are available when observed billing telemetry is absent"
+        ]
+      },
+      "requiresReindex": false
+    },
+    {
       "version": "0.8.1",
       "date": "2026-08-02",
       "notes": {
