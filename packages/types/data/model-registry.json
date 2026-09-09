@@ -279,6 +279,15 @@
     "premiumRequests": 1
   },
   {
+    "id": "gpt-6-astra",
+    "name": "GPT-6 Astra",
+    "tier": "premium",
+    "inputPerM": 10.0,
+    "cachedInputPerM": 1.0,
+    "outputPerM": 50.0,
+    "premiumRequests": 0
+  },
+  {
     "id": "claude-fable-5",
     "name": "Claude Fable 5",
     "tier": "premium",

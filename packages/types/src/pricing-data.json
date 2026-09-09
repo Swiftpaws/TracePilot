@@ -1,10 +1,10 @@
 {
-  "version": "github-copilot-usage-2026-07-17",
+  "version": "github-copilot-usage-2026-09-09-astra",
   "sources": {
     "githubCopilotUsage": {
       "label": "GitHub Copilot models and pricing",
       "url": "https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing",
-      "verifiedAt": "2026-07-17",
+      "verifiedAt": "2026-09-09",
       "effectiveFrom": "2026-06-01"
     },
     "annualLegacyMultipliers": {
@@ -59,6 +59,7 @@
     "gpt-5.6-luna": ["GPT-5.6 Luna"],
     "gpt-5.6-sol": ["GPT-5.6 Sol"],
     "gpt-5.6-terra": ["GPT-5.6 Terra"],
+    "gpt-6-astra": ["GPT-6 Astra"],
     "grok-code-fast-1": ["Grok Code Fast 1"],
     "raptor-mini": ["Raptor mini"],
     "mai-code-1-flash": ["MAI-Code-1-Flash"],
@@ -210,6 +211,24 @@
       "cachedInputPerM": 0.5,
       "cacheWritePerM": 0,
       "outputPerM": 22.5
+    },
+    {
+      "model": "gpt-6-astra",
+      "displayName": "GPT-6 Astra",
+      "inputPerM": 10,
+      "cachedInputPerM": 1,
+      "cacheWritePerM": 12.5,
+      "outputPerM": 50
+    },
+    {
+      "model": "gpt-6-astra",
+      "displayName": "GPT-6 Astra",
+      "pricingTier": "long-context",
+      "minimumInputTokens": 272001,
+      "inputPerM": 20,
+      "cachedInputPerM": 2,
+      "cacheWritePerM": 25,
+      "outputPerM": 75
     },
     {
       "model": "claude-haiku-4.5",
@@ -565,6 +584,11 @@
     }
   ],
   "currentPremiumRequestDefaults": [
+    {
+      "model": "gpt-6-astra",
+      "displayName": "GPT-6 Astra",
+      "currentPremiumRequests": 0
+    },
     {
       "model": "claude-opus-4.6-fast",
       "displayName": "Claude Opus 4.6 Fast",

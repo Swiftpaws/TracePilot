@@ -88,6 +88,39 @@ describe("pricing registry", () => {
     expect(gpt54Prices.map((entry) => entry.minimumInputTokens ?? 0)).toEqual([0, 272001]);
   });
 
+  it.each([
+    [272_000, "default", 2.37],
+    [272_001, "long-context", 4.49002],
+  ] as const)("prices Astra cache usage at the %i-token boundary", (inputTokens, tier, total) => {
+    const cost = calculateTokenCost(
+      "GPT-6 Astra",
+      {
+        inputTokens,
+        cacheReadTokens: 100_000,
+        cacheWriteTokens: 20_000,
+        outputTokens: 10_000,
+      },
+      { billingProvider: "github-copilot", at: "2026-09-09" },
+    );
+    expect(cost.status).toBe("priced");
+    expect(cost.matchedModel).toBe("gpt-6-astra");
+    expect(cost.entry?.pricingTier).toBe(tier);
+    expect(cost.totalCost).toBeCloseTo(total, 5);
+    expect(cost.aiCredits).toBeCloseTo(total * 100, 3);
+  });
+
+  it("provides both Astra defaults without inventing legacy annual pricing", () => {
+    const defaults = getDefaultWholesalePrices().filter((entry) => entry.model === "gpt-6-astra");
+    expect(defaults.map((entry) => entry.minimumInputTokens ?? 0)).toEqual([0, 272001]);
+    expect(defaults.map((entry) => entry.cacheWritePerM)).toEqual([12.5, 25]);
+    expect(
+      resolvePricingEntry("gpt-6-astra", {
+        billingProvider: "github-copilot",
+        pricingKind: "legacy-premium-request",
+      }),
+    ).toBeUndefined();
+  });
+
   it("derives provider defaults from the same published rates as GitHub usage pricing", () => {
     for (const usageEntry of GITHUB_COPILOT_USAGE_PRICING) {
       const providerEntry = PROVIDER_WHOLESALE_PRICING.find(

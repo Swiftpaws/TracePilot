@@ -57,6 +57,23 @@ Pricing updates should be made in `packages/types/src/pricing-data.json`, not in
 
 Local settings remain explicit user overrides for the Direct API estimate and are persisted in TracePilot's existing config file. Effective-date editing is intentionally display-only in this MVP; a future refresh command can update the JSON data file from GitHub's pricing page without changing calculation logic.
 
+## GPT-6 Astra pricing addition (2026-09-09)
+
+The September 9 refresh adds `gpt-6-astra` / `GPT-6 Astra` using the
+[GitHub Copilot pricing table](https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing).
+Other models' rates are unchanged by this targeted refresh.
+
+| Input context | Input / 1M | Cached input / 1M | Cache write / 1M | Output / 1M |
+| --- | --- | --- | --- | --- |
+| Up to 272,000 tokens | $10 | $1 | $12.50 | $50 |
+| From 272,001 tokens | $20 | $2 | $25 | $75 |
+
+Both tiers also populate the existing local Direct API estimate defaults.
+Astra has no published legacy annual-plan multiplier and receives no entry in
+`annualLegacyMultipliers`. Its required numeric `premiumRequests` compatibility
+field is zero (not applicable), not a claim that Astra usage is free. Token costs
+and observed AI Credits remain authoritative.
+
 ## Alias handling
 
 Copilot event model names may not match GitHub documentation or provider names exactly. TracePilot normalizes model names and uses explicit aliases from the registry before falling back to conservative exact/prefix matching. This avoids fragile substring-only matching and makes unknown models visible.
