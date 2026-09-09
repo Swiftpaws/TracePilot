@@ -38,9 +38,9 @@
   },
   "plugins": {
     "updater": {
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEVDRkFCMDUyNjJBQzZEMDcKUldRSGJheGlVckQ2N01NK0oxWUxRZE5Vd0o5QnhmbGpYWnAyUDBqQk9VNGYvUlhUYi9vYTU5aWIK",
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEFBRURCN0FEMUZCNjgzRjYKUldUMmc3WWZyYmZ0cWxlNndKVWxUazBzaGdpSU5naHlYaXhOZlJmYzdhZmJxd0ZkUnNvWnk2YUsK",
       "endpoints": [
-        "https://github.com/MattShelton04/TracePilot/releases/latest/download/latest.json"
+        "https://github.com/Swiftpaws/TracePilot/releases/latest/download/latest.json"
       ]
     }
   }

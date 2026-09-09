@@ -22,7 +22,7 @@ pub(crate) async fn check_for_updates_with_reqwest() -> CmdResult<UpdateCheckRes
         .build()?;
 
     let response = client
-        .get("https://api.github.com/repos/MattShelton04/TracePilot/releases/latest")
+        .get("https://api.github.com/repos/Swiftpaws/TracePilot/releases/latest")
         .header("Accept", "application/vnd.github+json")
         .header("X-GitHub-Api-Version", "2022-11-28")
         .send()
